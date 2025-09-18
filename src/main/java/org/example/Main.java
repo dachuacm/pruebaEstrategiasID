@@ -13,7 +13,7 @@ public class Main {
 
         EntityManager em=emf.createEntityManager();
 
-    for(int i=0;i<5;i++) {
+/*    for(int i=0;i<5;i++) {
         Tabla1 renglonT1 = new Tabla1("otra"+i, 25.3f, 85+1);
 
         em.getTransaction().begin();
@@ -21,7 +21,7 @@ public class Main {
         em.getTransaction().commit();
 
     }
-
+*/
         for(int i=0;i<5;i++) {
             Tabla2 renglonT2;
             char[] vocal={'a','e','i','o','u'};
@@ -29,14 +29,17 @@ public class Main {
             renglonT2 = new Tabla2("P"+vocal[i]+"to");}
             else  {
                 renglonT2 = new Tabla2("Juan");
+
+
             }
+            renglonT2.setTipo(i%2==0?Tipos.BPOS:Tipos.ANEG);
             em.getTransaction().begin();
             em.persist(renglonT2);
             em.getTransaction().commit();
 
         }
 
-
+/*
         for(int i=0;i<5;i++) {
             Tabla3 renglonT3 = new Tabla3(500+1,"nada");
 
@@ -45,7 +48,7 @@ public class Main {
             em.getTransaction().commit();
 
         }
-
+*/
 
 
 

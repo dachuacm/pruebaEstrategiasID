@@ -2,6 +2,10 @@ package org.example;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
+
 @Entity
 public class Tabla2 {
     @Id
@@ -10,6 +14,21 @@ public class Tabla2 {
     private int id;
 
     private String nombre;
+
+    @Transient
+    private String apodo;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name="tipo_s")
+    private Tipos tipo;
+
+    @Temporal(TemporalType.TIME)
+    private LocalTime fecha;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fecha2;
+
+    private java.sql.Date fecha3;
 
     public Tabla2(){}
 
@@ -31,5 +50,13 @@ public class Tabla2 {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Tipos getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Tipos tipo) {
+        this.tipo = tipo;
     }
 }
